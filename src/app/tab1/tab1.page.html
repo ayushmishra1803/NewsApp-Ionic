@@ -1,17 +1,24 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Tab 1
-    </ion-title>
-  </ion-toolbar>
+	<ion-toolbar>
+		<ion-title>
+			<h1>News HeadLines</h1>
+		</ion-title>
+	</ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 1</ion-title>
-    </ion-toolbar>
-  </ion-header>
+	<div *ngFor="let news of News">
+		<ion-card>
+			<ion-img [src]="news.urlToImage"></ion-img>
 
-  <app-explore-container name="Tab 1 page"></app-explore-container>
+			<ion-card-header>
+				<ion-card-subtitle>{{news.title}}</ion-card-subtitle>
+			</ion-card-header>
+			<ion-card-content>
+				<ion-label><b>Content :</b></ion-label
+				>{{news .content}}
+			</ion-card-content><div style="margin:auto;padding: 10px;">
+		<ion-button (click)="readMore(news)"> Read More </ion-button></div>
+		</ion-card>
+	</div>
 </ion-content>
