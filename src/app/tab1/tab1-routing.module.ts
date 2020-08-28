@@ -7,10 +7,7 @@ const routes: Routes = [
     path: '',
     component: Tab1Page,
   },
-  {
-    path: 'read-more-news',
-    loadChildren: () => import('./read-more-news/read-more-news.module').then( m => m.ReadMoreNewsPageModule)
-  }
+  
 ];
 
 @NgModule({

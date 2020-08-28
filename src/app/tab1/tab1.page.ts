@@ -24,11 +24,10 @@ export class Tab1Page implements OnInit {
 				this.News = re.articles;
 				console.log(this.News);
 			});
-			
 	}
 	readMore(news) {
 		this.news.setNewsReadMore(news);
 		console.log(news);
-		this.router.navigate(["/tabs/News/read-more-news"]);
+		this.router.navigate(["/read-more"]);
 	}
 }

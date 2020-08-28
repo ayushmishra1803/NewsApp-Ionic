@@ -4,17 +4,17 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { ReadMoreNewsPageRoutingModule } from './read-more-news-routing.module';
+import { ReadMorePageRoutingModule } from './read-more-routing.module';
 
-import { ReadMoreNewsPage } from './read-more-news.page';
+import { ReadMorePage } from './read-more.page';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    ReadMoreNewsPageRoutingModule
+    ReadMorePageRoutingModule
   ],
-  declarations: [ReadMoreNewsPage]
+  declarations: [ReadMorePage]
 })
-export class ReadMoreNewsPageModule {}
+export class ReadMorePageModule {}
