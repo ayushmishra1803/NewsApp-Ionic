@@ -7,7 +7,7 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-	<div>
+	<!-- <div>
 		<ion-card>
 			<ion-img src="assets/ayush.jpeg"></ion-img>
 			<ion-card-content>
@@ -45,6 +45,22 @@
 					</ion-col>
 				</ion-row>
 			</ion-card-content>
+		</ion-card>
+	</div> -->
+	<div *ngFor="let news of News">
+		<ion-card>
+			<ion-img [src]="news.urlToImage"></ion-img>
+
+			<ion-card-header>
+				<ion-card-subtitle>{{news.title}}</ion-card-subtitle>
+			</ion-card-header>
+			<ion-card-content>
+				<ion-label><b>Content :</b></ion-label
+				>{{news .content}}
+			</ion-card-content>
+			<div style="margin: auto; padding: 10px">
+				<ion-button (click)="readMore(news)"> Read More </ion-button>
+			</div>
 		</ion-card>
 	</div>
 </ion-content>

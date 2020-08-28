@@ -1,9 +1,24 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>entertainment</ion-title>
+  <ion-toolbar color="primary">
+    <ion-title><h1>Entertainment</h1></ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+<div *ngFor="let news of News">
+		<ion-card>
+			<ion-img [src]="news.urlToImage"></ion-img>
 
+			<ion-card-header>
+				<ion-card-subtitle>{{news.title}}</ion-card-subtitle>
+			</ion-card-header>
+			<ion-card-content>
+				<ion-label><b>Content :</b></ion-label
+				>{{news .content}}
+			</ion-card-content>
+			<div style="margin: auto; padding: 10px">
+				<ion-button (click)="readMore(news)"> Read More </ion-button>
+			</div>
+		</ion-card>
+	</div>
 </ion-content>
