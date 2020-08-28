@@ -1,7 +1,7 @@
 import { HttpClient } from "@angular/common/http";
 import { NewsHeadlineService } from "./../service/newsHeadline/news-headline.service";
 import { Component, OnInit } from "@angular/core";
-import { Observable } from "rxjs";
+import { Router } from "@angular/router";
 
 @Component({
 	selector: "app-tab1",
@@ -10,7 +10,11 @@ import { Observable } from "rxjs";
 })
 export class Tab1Page implements OnInit {
 	News: any[] = [];
-	constructor(private news: NewsHeadlineService, private http: HttpClient) {}
+	constructor(
+		private news: NewsHeadlineService,
+		private http: HttpClient,
+		private router: Router,
+	) {}
 	ngOnInit(): void {
 		this.http
 			.get<{ articles: any[] }>(
@@ -20,9 +24,11 @@ export class Tab1Page implements OnInit {
 				this.News = re.articles;
 				console.log(this.News);
 			});
+			
 	}
 	readMore(news) {
-    this.news.setNewsReadMore(news);
+		this.news.setNewsReadMore(news);
 		console.log(news);
+		this.router.navigate(["/tabs/News/read-more-news"]);
 	}
 }
