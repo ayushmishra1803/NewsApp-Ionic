@@ -28,6 +28,13 @@ const routes: Routes = [
 				redirectTo: "/tabs/News",
 				pathMatch: "full",
 			},
+			{
+				path: "business",
+				loadChildren: () =>
+					import("../business/business.module").then(
+						(m) => m.BusinessPageModule,
+					),
+			},
 		],
 	},
 	{
