@@ -12,7 +12,7 @@ const routes: Routes = [
     path: 'read-more',
     loadChildren: () => import('./read-more/read-more.module').then( m => m.ReadMorePageModule)
   },
-  
+
 
 ];
 @NgModule({
