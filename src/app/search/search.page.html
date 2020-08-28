@@ -5,9 +5,26 @@
 </ion-header>
 
 <ion-content>
-	<ion-searchbar
-		placeholder="Category"
-		(ionChange)="onchange($event)"
-		autocorrect
-	></ion-searchbar>
+	<ion-searchbar (ionChange)="onchange($event)" [(ngModel)]="searched"> </ion-searchbar>
+	<ion-list *ngIf="List === true">
+		<ion-item *ngFor="let iteam of iteams" (click)="select(iteam)"
+			>{{iteam}}</ion-item
+		>
+	</ion-list>
+	<div *ngFor="let news of News">
+		<ion-card>
+			<ion-img [src]="news.urlToImage"></ion-img>
+
+			<ion-card-header>
+				<ion-card-subtitle>{{news.title}}</ion-card-subtitle>
+			</ion-card-header>
+			<ion-card-content>
+				<ion-label><b>Content :</b></ion-label
+				>{{news .content}}
+			</ion-card-content>
+			<div style="margin: auto; padding: 10px">
+				<ion-button (click)="readMore(news)"> Read More </ion-button>
+			</div>
+		</ion-card>
+	</div>
 </ion-content>

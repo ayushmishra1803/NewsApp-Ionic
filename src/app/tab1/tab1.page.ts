@@ -1,3 +1,4 @@
+import { LoadingController } from "@ionic/angular";
 import { HttpClient } from "@angular/common/http";
 import { NewsHeadlineService } from "./../service/newsHeadline/news-headline.service";
 import { Component, OnInit } from "@angular/core";
@@ -14,15 +15,21 @@ export class Tab1Page implements OnInit {
 		private news: NewsHeadlineService,
 		private http: HttpClient,
 		private router: Router,
+		private loading: LoadingController,
 	) {}
 	ngOnInit(): void {
-		this.http
-			.get<{ articles: any[] }>(
-				"http://newsapi.org/v2/top-headlines?country=in&apiKey=f7e6050983c14d0cb675dc8f8b6164f2",
-			)
-			.subscribe((re) => {
-				this.News = re.articles;
-				console.log(this.News);
+		this.loading
+			.create({ keyboardClose: true, message: "News Headlines..." })
+			.then((res) => {
+				res.present();
+				this.http
+					.get<{ articles: any[] }>(
+						"http://newsapi.org/v2/top-headlines?country=in&apiKey=f7e6050983c14d0cb675dc8f8b6164f2",
+					)
+					.subscribe((re) => {
+						this.News = re.articles;
+						res.dismiss();
+					});
 			});
 	}
 	readMore(news) {
