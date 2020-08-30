@@ -36,5 +36,5 @@ export class EntertainmentPage implements OnInit {
 		this.news.setNewsReadMore(news);
 		console.log(news);
 		this.router.navigate(["/read-more"]);
-	}//Aheldgfsdvad
+	}
 }
